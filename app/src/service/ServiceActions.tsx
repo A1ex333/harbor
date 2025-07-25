@@ -7,6 +7,7 @@ import { markHandled, resolveResultLines, toasted } from '../utils';
 import { ACTION_ICONS } from '../serviceActions';
 import { IconBookMarked, IconExternalLink } from '../Icons';
 import { runOpen } from '../useOpen';
+import { useLocalUrls } from "../useLocalUrls";
 
 export const ServiceActions = ({
   service,
@@ -16,11 +17,12 @@ export const ServiceActions = ({
   onUpdate?: () => void,
 }) => {
   const [loading, setLoading] = useState(false);
+  const [isUseLocalUrls, _] = useLocalUrls();
 
   const openService = async (e: React.MouseEvent) => {
     markHandled(e);
 
-    const urlResult = await runHarbor(["url", service.handle]);
+    const urlResult = await runHarbor(["url", isUseLocalUrls ? "-i" : "", service.handle]);
     const url = resolveResultLines(urlResult).join("");
     await runOpen([url]);
   };

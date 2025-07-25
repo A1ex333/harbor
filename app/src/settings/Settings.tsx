@@ -2,6 +2,7 @@ import { Section } from "../Section";
 import { IconChevronDown } from "../Icons";
 import { THEMES, useTheme } from "../theme";
 import { useAutostart } from "../useAutostart";
+import { useLocalUrls } from "../useLocalUrls";
 
 export const Settings = () => {
   const theme = useTheme();
@@ -10,6 +11,8 @@ export const Settings = () => {
   const handleAutostartChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     autostart.setAutostart(e.target.checked);
   };
+
+  const [isUseLocalUrls, setUseLocalUrls] = useLocalUrls();
 
   return (
     <>
@@ -32,6 +35,25 @@ export const Settings = () => {
                     checked={autostart.enabled}
                     disabled={autostart.loading}
                     onChange={handleAutostartChange}
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold mt-4">Use internal URLs</h2>
+              <p className="text-base-content/50">
+                Launch Harbor Apps using internal URLs.
+              </p>
+
+              <div className="form-control w-52">
+                <label className="label cursor-pointer">
+                  <span className="label-text">Use internal URLs</span>
+                  <input
+                    type="checkbox"
+                    className="toggle"
+                    checked={isUseLocalUrls}
+                    onChange={(e) => setUseLocalUrls(e.target.checked)}
                   />
                 </label>
               </div>
