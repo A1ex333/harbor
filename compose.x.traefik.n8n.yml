@@ -4,7 +4,7 @@ services:
   n8n:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.n8n.rule=Host(`n8n.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.n8n.rule=HostRegexp(`n8n\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.n8n.loadbalancer.server.port=5678"
       - "traefik.http.routers.n8n.entrypoints=websecure"
       - "traefik.http.routers.n8n.tls=true"

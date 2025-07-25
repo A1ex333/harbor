@@ -4,7 +4,7 @@ services:
   chatnio:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.chatnio.rule=Host(`chatnio.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.chatnio.rule=HostRegexp(`chatnio\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.chatnio.loadbalancer.server.port=8094"
       - "traefik.http.routers.chatnio.entrypoints=websecure"
       - "traefik.http.routers.chatnio.tls=true"

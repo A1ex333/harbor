@@ -4,7 +4,7 @@ services:
   agent:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.agent.rule=Host(`agent.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.agent.rule=HostRegexp(`agent\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.agent.loadbalancer.server.port=8000"
       - "traefik.http.routers.agent.entrypoints=websecure"
       - "traefik.http.routers.agent.tls=true"

@@ -4,7 +4,7 @@ services:
   mistralrs:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mistralrs.rule=Host(`mistralrs.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.mistralrs.rule=HostRegexp(`mistralrs\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.mistralrs.loadbalancer.server.port=8021"
       - "traefik.http.routers.mistralrs.entrypoints=websecure"
       - "traefik.http.routers.mistralrs.tls=true"

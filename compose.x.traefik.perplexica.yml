@@ -4,7 +4,7 @@ services:
   perplexica:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.perplexica.rule=Host(`perplexica.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.perplexica.rule=HostRegexp(`perplexica\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.perplexica.loadbalancer.server.port=3000"
       - "traefik.http.routers.perplexica.entrypoints=websecure"
       - "traefik.http.routers.perplexica.tls=true"

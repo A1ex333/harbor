@@ -4,7 +4,7 @@ services:
   mcpo:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mcpo.rule=Host(`mcpo.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.mcpo.rule=HostRegexp(`mcpo\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.mcpo.loadbalancer.server.port=8000"
       - "traefik.http.routers.mcpo.entrypoints=websecure"
       - "traefik.http.routers.mcpo.tls=true"

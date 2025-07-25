@@ -62,7 +62,7 @@ services:
   ${serviceName}:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.${serviceName}.rule=Host(\`${serviceName}.\${HARBOR_TRAEFIK_DOMAIN}\`)"
+      - "traefik.http.routers.${serviceName}.rule=HostRegexp(\`${serviceName}\\\\.\${HARBOR_TRAEFIK_DOMAIN}\`)"
       - "traefik.http.services.${serviceName}.loadbalancer.server.port=${port}"
       - "traefik.http.routers.${serviceName}.entrypoints=websecure"
       - "traefik.http.routers.${serviceName}.tls=true"

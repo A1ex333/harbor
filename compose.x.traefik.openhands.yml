@@ -4,7 +4,7 @@ services:
   openhands:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.openhands.rule=Host(`openhands.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.openhands.rule=HostRegexp(`openhands\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.openhands.loadbalancer.server.port=3000"
       - "traefik.http.routers.openhands.entrypoints=websecure"
       - "traefik.http.routers.openhands.tls=true"

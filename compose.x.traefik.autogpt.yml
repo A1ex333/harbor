@@ -4,7 +4,7 @@ services:
   autogpt:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.autogpt.rule=Host(`autogpt.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.autogpt.rule=HostRegexp(`autogpt\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.autogpt.loadbalancer.server.port=8000"
       - "traefik.http.routers.autogpt.entrypoints=websecure"
       - "traefik.http.routers.autogpt.tls=true"

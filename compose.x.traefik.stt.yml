@@ -4,7 +4,7 @@ services:
   stt:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.stt.rule=Host(`stt.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.stt.rule=HostRegexp(`stt\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.stt.loadbalancer.server.port=8000"
       - "traefik.http.routers.stt.entrypoints=websecure"
       - "traefik.http.routers.stt.tls=true"

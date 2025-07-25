@@ -4,7 +4,7 @@ services:
   promptfoo:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.promptfoo.rule=Host(`promptfoo.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.promptfoo.rule=HostRegexp(`promptfoo\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.promptfoo.loadbalancer.server.port=3000"
       - "traefik.http.routers.promptfoo.entrypoints=websecure"
       - "traefik.http.routers.promptfoo.tls=true"

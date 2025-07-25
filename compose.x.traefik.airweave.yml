@@ -4,7 +4,7 @@ services:
   airweave:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.airweave.rule=Host(`airweave.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.airweave.rule=HostRegexp(`airweave\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.airweave.loadbalancer.server.port=8080"
       - "traefik.http.routers.airweave.entrypoints=websecure"
       - "traefik.http.routers.airweave.tls=true"

@@ -4,7 +4,7 @@ services:
   bolt:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.bolt.rule=Host(`bolt.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.bolt.rule=HostRegexp(`bolt\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.bolt.loadbalancer.server.port=5173"
       - "traefik.http.routers.bolt.entrypoints=websecure"
       - "traefik.http.routers.bolt.tls=true"

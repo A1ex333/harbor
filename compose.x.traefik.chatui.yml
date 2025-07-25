@@ -4,7 +4,7 @@ services:
   chatui:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.chatui.rule=Host(`chatui.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.chatui.rule=HostRegexp(`chatui\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.chatui.loadbalancer.server.port=3000"
       - "traefik.http.routers.chatui.entrypoints=websecure"
       - "traefik.http.routers.chatui.tls=true"

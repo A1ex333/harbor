@@ -4,7 +4,7 @@ services:
   aider:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.aider.rule=Host(`aider.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.aider.rule=HostRegexp(`aider\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.aider.loadbalancer.server.port=8501"
       - "traefik.http.routers.aider.entrypoints=websecure"
       - "traefik.http.routers.aider.tls=true"

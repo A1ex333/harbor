@@ -4,7 +4,7 @@ services:
   llamacpp:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.llamacpp.rule=Host(`llamacpp.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.llamacpp.rule=HostRegexp(`llamacpp\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.llamacpp.loadbalancer.server.port=8080"
       - "traefik.http.routers.llamacpp.entrypoints=websecure"
       - "traefik.http.routers.llamacpp.tls=true"

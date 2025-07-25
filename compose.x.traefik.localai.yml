@@ -4,7 +4,7 @@ services:
   localai:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.localai.rule=Host(`localai.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.localai.rule=HostRegexp(`localai\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.localai.loadbalancer.server.port=8080"
       - "traefik.http.routers.localai.entrypoints=websecure"
       - "traefik.http.routers.localai.tls=true"

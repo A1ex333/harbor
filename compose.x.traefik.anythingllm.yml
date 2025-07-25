@@ -4,7 +4,7 @@ services:
   anythingllm:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.anythingllm.rule=Host(`anythingllm.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.anythingllm.rule=HostRegexp(`anythingllm\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.anythingllm.loadbalancer.server.port=3001"
       - "traefik.http.routers.anythingllm.entrypoints=websecure"
       - "traefik.http.routers.anythingllm.tls=true"

@@ -4,7 +4,7 @@ services:
   modularmax:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.modularmax.rule=Host(`modularmax.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.modularmax.rule=HostRegexp(`modularmax\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.modularmax.loadbalancer.server.port=8000"
       - "traefik.http.routers.modularmax.entrypoints=websecure"
       - "traefik.http.routers.modularmax.tls=true"

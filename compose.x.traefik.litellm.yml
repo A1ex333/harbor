@@ -4,7 +4,7 @@ services:
   litellm:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.litellm.rule=Host(`litellm.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.litellm.rule=HostRegexp(`litellm\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.litellm.loadbalancer.server.port=4000"
       - "traefik.http.routers.litellm.entrypoints=websecure"
       - "traefik.http.routers.litellm.tls=true"

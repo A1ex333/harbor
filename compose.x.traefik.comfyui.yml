@@ -4,7 +4,7 @@ services:
   comfyui:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.comfyui.rule=Host(`comfyui.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.comfyui.rule=HostRegexp(`comfyui\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.comfyui.loadbalancer.server.port=${HARBOR_COMFYUI_HOST_PORT}"
       - "traefik.http.routers.comfyui.entrypoints=websecure"
       - "traefik.http.routers.comfyui.tls=true"

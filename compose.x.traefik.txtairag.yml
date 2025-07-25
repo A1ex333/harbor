@@ -4,7 +4,7 @@ services:
   txtairag:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.txtairag.rule=Host(`txtairag.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.txtairag.rule=HostRegexp(`txtairag\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.txtairag.loadbalancer.server.port=8501"
       - "traefik.http.routers.txtairag.entrypoints=websecure"
       - "traefik.http.routers.txtairag.tls=true"

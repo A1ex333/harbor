@@ -4,7 +4,7 @@ services:
   dify:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dify.rule=Host(`dify.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.dify.rule=HostRegexp(`dify\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.dify.loadbalancer.server.port=80"
       - "traefik.http.routers.dify.entrypoints=websecure"
       - "traefik.http.routers.dify.tls=true"

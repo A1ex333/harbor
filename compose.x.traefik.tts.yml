@@ -4,7 +4,7 @@ services:
   tts:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.tts.rule=Host(`tts.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.tts.rule=HostRegexp(`tts\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.tts.loadbalancer.server.port=8000"
       - "traefik.http.routers.tts.entrypoints=websecure"
       - "traefik.http.routers.tts.tls=true"

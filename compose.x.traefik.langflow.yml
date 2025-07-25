@@ -4,7 +4,7 @@ services:
   langflow:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.langflow.rule=Host(`langflow.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.langflow.rule=HostRegexp(`langflow\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.langflow.loadbalancer.server.port=7860"
       - "traefik.http.routers.langflow.entrypoints=websecure"
       - "traefik.http.routers.langflow.tls=true"

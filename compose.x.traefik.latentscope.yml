@@ -4,7 +4,7 @@ services:
   latentscope:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.latentscope.rule=Host(`latentscope.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.latentscope.rule=HostRegexp(`latentscope\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.latentscope.loadbalancer.server.port=5001"
       - "traefik.http.routers.latentscope.entrypoints=websecure"
       - "traefik.http.routers.latentscope.tls=true"

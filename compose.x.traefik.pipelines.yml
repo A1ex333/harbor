@@ -4,7 +4,7 @@ services:
   pipelines:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.pipelines.rule=Host(`pipelines.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.pipelines.rule=HostRegexp(`pipelines\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.pipelines.loadbalancer.server.port=9099"
       - "traefik.http.routers.pipelines.entrypoints=websecure"
       - "traefik.http.routers.pipelines.tls=true"

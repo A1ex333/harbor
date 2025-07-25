@@ -4,7 +4,7 @@ services:
   lobechat:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.lobechat.rule=Host(`lobechat.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.lobechat.rule=HostRegexp(`lobechat\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.lobechat.loadbalancer.server.port=3210"
       - "traefik.http.routers.lobechat.entrypoints=websecure"
       - "traefik.http.routers.lobechat.tls=true"

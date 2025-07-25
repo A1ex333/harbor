@@ -4,7 +4,7 @@ services:
   mikupad:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mikupad.rule=Host(`mikupad.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.mikupad.rule=HostRegexp(`mikupad\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.mikupad.loadbalancer.server.port=8080"
       - "traefik.http.routers.mikupad.entrypoints=websecure"
       - "traefik.http.routers.mikupad.tls=true"

@@ -4,7 +4,7 @@ services:
   ktransformers:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ktransformers.rule=Host(`ktransformers.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.ktransformers.rule=HostRegexp(`ktransformers\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.ktransformers.loadbalancer.server.port=12456"
       - "traefik.http.routers.ktransformers.entrypoints=websecure"
       - "traefik.http.routers.ktransformers.tls=true"
