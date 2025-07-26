@@ -1,0 +1,19 @@
+services:
+  sillytavern:
+    image: ghcr.io/sillytavern/sillytavern:${HARBOR_SILLYTAVERN_VERSION}
+    container_name: ${HARBOR_CONTAINER_PREFIX}.sillytavern
+    env_file:
+      - ./.env
+      - ./sillytavern/override.env
+    ports:
+      - ${HARBOR_SILLYTAVERN_HOST_PORT}:8000
+    volumes:
+      - ${HARBOR_SILLYTAVERN_WORKSPACE}/config:/home/node/app/config
+      - ${HARBOR_SILLYTAVERN_WORKSPACE}/data:/home/node/app/data
+      - ${HARBOR_SILLYTAVERN_WORKSPACE}/plugins:/home/node/app/plugins
+      - ${HARBOR_SILLYTAVERN_WORKSPACE}/extensions:/home/node/app/public/scripts/extensions/third-party
+    command: >
+      --whitelist false
+      --basicAuthMode true
+    networks:
+      - harbor-network

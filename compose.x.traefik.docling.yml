@@ -4,7 +4,7 @@ services:
   docling:
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.docling.rule=Host(`docling.${HARBOR_TRAEFIK_DOMAIN}`)"
+      - "traefik.http.routers.docling.rule=HostRegexp(`docling\\.${HARBOR_TRAEFIK_DOMAIN}`)"
       - "traefik.http.services.docling.loadbalancer.server.port=5001"
       - "traefik.http.routers.docling.entrypoints=websecure"
       - "traefik.http.routers.docling.tls=true"
